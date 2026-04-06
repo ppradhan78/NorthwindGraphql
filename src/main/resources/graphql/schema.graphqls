@@ -1,0 +1,23 @@
+type Category {
+    # 'ID' is the standard GraphQL scalar for unique identifiers
+    categoryID: ID!
+    categoryName: String!
+    description: String
+}
+
+input CategoryInput {
+    categoryName: String!
+    description: String
+}
+
+type Query {
+    # The argument name 'id' is fine, but the TYPE must be 'ID' or 'Int'
+    getCategoryById(categoryID: ID!): Category
+    getAllCategories: [Category]
+}
+
+type Mutation {
+    createCategory(input: CategoryInput!): Category
+    updateCategory(categoryID: ID!, input: CategoryInput!): Category
+    deleteCategory(categoryID: ID!): Boolean
+}

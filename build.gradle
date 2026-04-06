@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.ppradhan.clara'
+version = '1.0.0'
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starters
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-graphql'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Database
+    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+
+    // Tools
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Mapping
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+    // Documentation (Swagger/OpenAPI for the GraphiQL endpoint)
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+    // ADD THIS for GraphQL support
+    implementation 'org.springdoc:springdoc-openapi-starter-common:2.6.0'
+}

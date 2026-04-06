@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+
+  datasource:
+    url: jdbc:sqlserver://localhost:49771;encrypt=true;trustServerCertificate=true;databaseName=NORTHWND
+    username: admin
+    password: admin@2025
+
+  graphql:
+    path: /graphql
+    graphiql:
+      enabled: true
+
+# ✅ OUTSIDE spring block
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
